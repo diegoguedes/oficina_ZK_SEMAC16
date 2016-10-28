@@ -1,0 +1,62 @@
+<?page title="Auto Generated index.zul"?>
+<window title="Hello World!!" id="index" border="normal" width="600px"
+	apply="calculadora.CIndex">
+
+	<grid>
+		<columns>
+			<column label="Operações" width="110px" />
+			<column label="Campos" width="250px" />
+			<column label="Botões" />
+		</columns>
+		<rows>
+			<row>
+				<label value="Adição: " />
+				<cell>
+					<intbox id="intbxCampoSoma1" width="60px" />
+					<label value="+" />
+					<intbox id="intbxCampoSoma2" width="60px" />
+					<label value="=" />
+					<intbox id="intbxResultadoSoma" width="60px"
+						readonly="true" value="@{index$composer.resultadoSoma}" />
+				</cell>
+				<button label="Somar" id="btnSomar" />
+			</row>
+			<row>
+				<label value="Multiplicação: " />
+				<cell>
+					<intbox id="intbxCampoMultiplicacao1" width="60px" />
+					<label value="*" />
+					<intbox id="intbxCampoMultiplicacao2" width="60px" />
+					<label value="=" />
+					<intbox id="intbxResultadoMultiplicacao"
+						width="60px" readonly="true" />
+				</cell>
+				<button id="btnMultiplicar" label="Multiplicar" />
+
+			</row>
+			<row>
+				<button label="Consultar" id="btnConsultar" />
+			</row>
+			<row>
+				<cell colspan="3">
+					<listbox id="lstbxTeste" mold="paging" pageSize="5"
+						model="@{index$composer.arrayDaLista}" width="100%"
+						emptyMessage="Nenhum informação na tabela." visible="false">
+						<listhead sizable="true">
+							<listheader label="Dado 1" width="50%"
+								align="center" />
+							<listheader label="Dado 2" width="50%"
+								align="center" />
+						</listhead>
+						<listitem self="@{each=registro}"
+							value="@{registro}">
+							<listcell label="@{registro.dado1}" />
+							<listcell label="@{registro.dado2}" />
+						</listitem>
+					</listbox>
+				</cell>
+			</row>
+		</rows>
+	</grid>
+
+</window>
